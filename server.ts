@@ -1,0 +1,13 @@
+import express from 'express';
+const app = express();
+
+app.use(express.json())
+
+app.listen(3002, (err=>{
+    console.log("Server running on port 3002");
+}));
+
+app.use('/',(req,res,next)=>{
+    res.status(200).send('Not Found');
+})
+
