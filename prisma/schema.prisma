@@ -12,3 +12,11 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Field {
+  fieldCode  String @id
+  fieldName  String
+  location   String
+  extendSize String
+  fieldImage String
+}
