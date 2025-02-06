@@ -1,8 +1,7 @@
 import express from "express";
 import Crop from "../model/Crop";
 import {CropAdd, DeleteCrop, getAllCrops, UpdateCrop} from "../database/crop-prisma-data-store";
-import {DeleteField, getAllFields, UpdateField} from "../database/field-prisma-data-store";
-import Field from "../model/Field";
+
 
 const router = express.Router();
 router.post('/add',async (req,res)=>{

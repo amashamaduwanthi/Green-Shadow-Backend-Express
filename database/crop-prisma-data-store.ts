@@ -1,7 +1,5 @@
 import {PrismaClient} from "@prisma/client";
 import Crop from "../model/Crop";
-import Field from "../model/Field";
-
 const prisma = new PrismaClient();
 export async function CropAdd(c:Crop){
     try {
