@@ -19,4 +19,15 @@ model Field {
   location   String
   extendSize String
   fieldImage String
+  crops      Crop[]
+}
+
+model Crop {
+  cropId    String @id
+  cropName  String
+  cropImage String
+  category  String
+  season    String
+  fieldCode String
+  field     Field  @relation(fields: [fieldCode], references: [fieldCode], onDelete: Cascade)
 }
