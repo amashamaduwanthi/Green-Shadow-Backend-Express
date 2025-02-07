@@ -3,6 +3,7 @@ import fieldRoutes from "./routes/field-routes";
 import cropRoutes from "./routes/crop-routes";
 import staffRoutes from "./routes/staff-routes";
 import vehicleRoutes from "./routes/vehicle-routes";
+import equipmentRoutes from "./routes/equipment-routes";
 const app = express();
 
 app.use(express.json())
@@ -10,6 +11,7 @@ app.use('/field',fieldRoutes)
 app.use('/crop',cropRoutes)
 app.use('/staff',staffRoutes)
 app.use('/vehicle',vehicleRoutes)
+app.use('/equipment',equipmentRoutes)
 
 app.listen(3002, (err=>{
     console.log("Server running on port 3002");

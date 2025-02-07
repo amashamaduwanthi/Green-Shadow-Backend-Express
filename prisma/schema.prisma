@@ -14,13 +14,14 @@ datasource db {
 }
 
 model Field {
-  fieldCode  String  @id
+  fieldCode  String      @id
   fieldName  String
   location   String
   extendSize String
   fieldImage String
   crops      Crop[]
   staffs     Staff[]
+  equipments Equipment[]
 }
 
 model Crop {
@@ -34,18 +35,19 @@ model Crop {
 }
 
 model Staff {
-  staffId   String    @id
-  firstName String
-  lastName  String
-  gender    String
-  dob       DateTime
-  contactNo Int
-  email     String    @unique
-  address   String
-  role      String
-  fieldCode String
-  field     Field     @relation(fields: [fieldCode], references: [fieldCode], onDelete: Cascade)
-  vehicles  Vehicle[]
+  staffId    String      @id
+  firstName  String
+  lastName   String
+  gender     String
+  dob        DateTime
+  contactNo  Int
+  email      String      @unique
+  address    String
+  role       String
+  fieldCode  String
+  field      Field       @relation(fields: [fieldCode], references: [fieldCode], onDelete: Cascade)
+  vehicles   Vehicle[]
+  equipments Equipment[]
 }
 
 model Vehicle {
@@ -57,4 +59,15 @@ model Vehicle {
   remarks        String
   staffId        String
   staff          Staff  @relation(fields: [staffId], references: [staffId], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model Equipment {
+  equipmentId String @id
+  name        String
+  type        String
+  status      String
+  fieldCode   String
+  field       Field  @relation(fields: [fieldCode], references: [fieldCode], onDelete: Cascade, onUpdate: Cascade)
+  staffId     String
+  staff       Staff  @relation(fields: [staffId], references: [staffId], onDelete: Cascade, onUpdate: Cascade)
 }
