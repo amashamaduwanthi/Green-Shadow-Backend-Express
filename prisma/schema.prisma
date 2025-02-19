@@ -71,3 +71,10 @@ model Equipment {
   staffId     String
   staff       Staff  @relation(fields: [staffId], references: [staffId], onDelete: Cascade, onUpdate: Cascade)
 }
+
+model MonitoringLog {
+  LogCode     String @id
+  date        String
+  observation String
+  LogImage    String
+}

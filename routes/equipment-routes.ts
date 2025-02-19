@@ -1,11 +1,6 @@
 import express from "express";
 import Equipment from "../model/Equipment";
-import {
-    DeleteEquipment,
-    EquipmentAdd,
-    EquipmentUpdate,
-    getAllEquipments
-} from "../database/equipment-prisma-data-store";
+import {DeleteEquipment, EquipmentAdd, EquipmentUpdate, getAllEquipments} from "../database/equipment-prisma-data-store";
 
 const router = express.Router();
 
@@ -21,7 +16,7 @@ router.post('/add',async (req,res)=>{
     }
 })
 
-router.get('/get',async (req,res)=>{
+router.get('/view',async (req,res)=>{
     try{
         const equipments=await getAllEquipments();
         res.json(equipments)
